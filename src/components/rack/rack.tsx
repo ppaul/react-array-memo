@@ -7,10 +7,9 @@ export interface RackProps {
 }
 
 export const Rack = ({ items }: RackProps) => {
-  const Item = memo(({ index }: { index: number, checked: boolean }) => {
-    console.log('render item ', index);
+  const Item = memo(() => {
     const [checked, setChecked] = useState(false);
-    return <Box sx={{ width: "fit-content", display: "flex" }} key={index}>
+    return <Box sx={{ width: "fit-content", display: "flex" }}>
         <Bulb on={checked} />
         <Switch
           checked={checked}
@@ -20,7 +19,7 @@ export const Rack = ({ items }: RackProps) => {
       }
   );
 
-  const renderedItems = items.map((_, index: number) => <Item index={index} key={index} />);
+  const renderedItems = items.map((_, index: number) => <Item key={index} />);
 
   return renderedItems ? <>{renderedItems}</> : null;
 };

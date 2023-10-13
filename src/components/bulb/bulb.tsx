@@ -9,15 +9,15 @@ export const Bulb = (props: BulbProps) => {
   const renderCount = useRenderCounter();
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         display: "flex",
         flexDirection: "column",
-        padding: 2,
-        background: props.on ? "yellow" : "gray"
+        p: 2,
+        bgcolor: props.on ? "yellow" : "gray"
       }}
     >
       {renderCount}
-    </div>
+    </Box>
   );
 };
